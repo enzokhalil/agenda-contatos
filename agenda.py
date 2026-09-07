@@ -25,7 +25,15 @@ def buscar_contato():
 
 
 def remover_contato():
-    pass
+    nome = input("Digite o nome do contato que deseja remover: ")
+
+    for contato in contatos:
+        if contato["nome"].lower() == nome.lower():
+            contatos.remove(contato)
+            print("Contato removido com sucesso!")
+            return
+
+    print("Contato não encontrado.")
 
 
 while True:
