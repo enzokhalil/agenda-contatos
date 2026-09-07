@@ -1,0 +1,18 @@
+name: Verifica o código
+
+on: [push, pull_request]
+
+jobs:
+  verifica:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verificar sintaxe do agenda.py
+        run: python -m py_compile agenda.py
