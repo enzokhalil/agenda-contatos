@@ -17,9 +17,16 @@ def cadastrar_contato():
     print("Contato cadastrado com sucesso!")
     
 def listar_contatos():
-    pass
+    if not contatos:
+        print("Nenhum contato cadastrado.")
+        return
 
-
+    for contato in contatos:
+        print(f"Nome: {contato['nome']}")
+        print(f"Telefone: {contato['telefone']}")
+        print(f"Email: {contato['email']}")
+        print("-" * 20)
+        
 def buscar_contato():
     pass
 
