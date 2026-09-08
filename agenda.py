@@ -17,15 +17,37 @@ def cadastrar_contato():
     print("Contato cadastrado com sucesso!")
     
 def listar_contatos():
-    pass
+    if not contatos:
+        print("Nenhum contato cadastrado.")
+        return
+
+    for contato in contatos:
+        print(f"Nome: {contato['nome']} - Telefone: {contato['telefone']} - Email: {contato['email']}")
 
 
 def buscar_contato():
-    pass
+    termo = input("Digite o nome ou parte dele para buscar: ")
+    encontrou = False
+
+    for contato in contatos:
+        if termo.lower() in contato["nome"].lower():
+            print(f"{contato['nome']} - {contato['telefone']} - {contato['email']}")
+            encontrou = True
+
+    if not encontrou:
+        print("Nenhum contato encontrado.")
 
 
 def remover_contato():
-    pass
+    nome = input("Digite o nome do contato que deseja remover: ")
+
+    for contato in contatos:
+        if contato["nome"].lower() == nome.lower():
+            contatos.remove(contato)
+            print("Contato removido com sucesso!")
+            return
+
+    print("Contato não encontrado.")
 
 
 while True:
